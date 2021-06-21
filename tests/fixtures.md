@@ -170,3 +170,13 @@ foo
 : > bar
 : baz
 .
+
+Escaped deflist
+
+.
+Term 1
+\: Definition
+.
+Term 1
+\: Definition
+.
