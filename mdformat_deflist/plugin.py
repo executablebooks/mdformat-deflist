@@ -21,16 +21,6 @@ def make_render_children(separator: str) -> Render:
     return render_children
 
 
-def _render_dl(node: RenderTreeNode, context: RenderContext) -> str:
-    """Render the definition list."""
-    return make_render_children("\n")(node, context)
-
-
-def _render_dt(node: RenderTreeNode, context: RenderContext) -> str:
-    """Render the definition term."""
-    return make_render_children("\n")(node, context)
-
-
 def _render_dd(node: RenderTreeNode, context: RenderContext) -> str:
     """Render the definition body."""
     tight_list = all(
@@ -56,7 +46,22 @@ def _render_dd(node: RenderTreeNode, context: RenderContext) -> str:
         context.env["indent_width"] -= indent_width
 
 
+def _escape_deflist(text: str, node: RenderTreeNode, context: RenderContext) -> str:
+    # Escape line starting ":" or "~" characters that would otherwise be parsed
+    # as a definition list.
+    return "\n".join(
+        "\\" + line if line.startswith(":") or line.startswith("~") else line
+        for line in text.split("\n")
+    )
+
+
 # A mapping from syntax tree node type to a function that renders it.
 # This can be used to overwrite renderer functions of existing syntax
 # or add support for new syntax.
-RENDERERS: Mapping[str, Render] = {"dl": _render_dl, "dt": _render_dt, "dd": _render_dd}
+RENDERERS: Mapping[str, Render] = {
+    "dl": make_render_children("\n"),  # definition list
+    "dt": make_render_children("\n"),  # definition term
+    "dd": _render_dd,  # definition body
+}
+
+POSTPROCESSORS = {"paragraph": _escape_deflist}
