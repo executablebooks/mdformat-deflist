@@ -4,7 +4,7 @@
 [![codecov.io][cov-badge]][cov-link]
 [![PyPI version][pypi-badge]][pypi-link]
 
-An [mdformat](https://github.com/executablebooks/mdformat) plugin for markdown-it-deflist.
+An [mdformat](https://github.com/executablebooks/mdformat) plugin for [markdown-it-deflist](https://github.com/markdown-it/markdown-it-deflist).
 
 ## Development
 
