@@ -1,23 +1,10 @@
-# mdformat-plugin
+# mdformat-deflist
 
 [![Build Status][ci-badge]][ci-link]
 [![codecov.io][cov-badge]][cov-link]
 [![PyPI version][pypi-badge]][pypi-link]
 
-An [mdformat](https://github.com/executablebooks/mdformat) plugin for...
-
-## Required changes for a new plugin
-
-This demonstration is setup with a plugin named `plugin`.
-There are a number of locations to change.
-At a top level for a plugin `foo` at least the following changes are required
-
-- Global find and replace `mdformat_plugin` to `mdformat_foo` including folder names.
-- Global find and replace `mdformat-plugin` to `mdformat-foo` including folder names.
-- `tests/test_fixtures.py`: `output = mdformat.text(text, extensions={"plugin"})` becomes `output = mdformat.text(text, extensions={"foo"})`
-- `pyproject.toml` in addition to the global find and replace: `plugin = "mdformat_plugin"` becomes `foo = "mdformat_foo"`
-
-Do not forget to update authorship / maintainers in `pyproject.toml` as well.
+An [mdformat](https://github.com/executablebooks/mdformat) plugin for markdown-it-deflist.
 
 ## Development
 
@@ -75,9 +62,9 @@ or trigger the GitHub Action job, by creating a release with a tag equal to the 
 
 Note, this requires generating an API key on PyPi and adding it to the repository `Settings/Secrets`, under the name `PYPI_KEY`.
 
-[ci-badge]: https://github.com/executablebooks/mdformat-plugin/workflows/CI/badge.svg?branch=master
+[ci-badge]: https://github.com/executablebooks/mdformat-deflist/workflows/CI/badge.svg?branch=master
 [ci-link]: https://github.com/executablebooks/mdformat/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush
-[cov-badge]: https://codecov.io/gh/executablebooks/mdformat-plugin/branch/master/graph/badge.svg
-[cov-link]: https://codecov.io/gh/executablebooks/mdformat-plugin
-[pypi-badge]: https://img.shields.io/pypi/v/mdformat-plugin.svg
-[pypi-link]: https://pypi.org/project/mdformat-plugin
+[cov-badge]: https://codecov.io/gh/executablebooks/mdformat-deflist/branch/master/graph/badge.svg
+[cov-link]: https://codecov.io/gh/executablebooks/mdformat-deflist
+[pypi-badge]: https://img.shields.io/pypi/v/mdformat-deflist.svg
+[pypi-link]: https://pypi.org/project/mdformat-deflist

@@ -1,24 +1,172 @@
-a test
+
+Pandoc (with slightly changed indents):
 .
-This is the input Markdown test,
-then below add the expected output.
+paragraph
+
+Term 1
+
+: Definition 1
+
+Term 2 with *inline markup*
+
+: Definition 2
+
+      { some code, part of Definition 2 }
+
+  Third paragraph of definition 2.
+
+paragraph
 .
-This is the input Markdown test,
-then below add the expected output.
+paragraph
+
+Term 1
+
+: Definition 1
+
+Term 2 with *inline markup*
+
+: Definition 2
+
+  ```
+  { some code, part of Definition 2 }
+  ```
+
+  Third paragraph of definition 2.
+
+paragraph
 .
 
-another test
+Pandoc 2:
+
 .
-Some *markdown*
+Term 1
 
-- a
-- b
-* c
+:   Definition
+with lazy continuation.
+
+    Second paragraph of the definition.
 .
-Some *markdown*
+Term 1
 
-- a
-- b
+: Definition
+  with lazy continuation.
 
-* c
+  Second paragraph of the definition.
+.
+
+Pandoc 3
+.
+paragraph
+
+Term 1
+  ~ Definition 1
+
+Term 2
+  ~ Definition 2a
+  ~ Definition 2b
+
+paragraph
+.
+paragraph
+
+Term 1
+: Definition 1
+
+Term 2
+: Definition 2a
+: Definition 2b
+
+paragraph
+.
+
+Spaces after a colon:
+.
+Term 1
+  :    paragraph
+
+Term 2
+  :     code block
+.
+Term 1
+: paragraph
+
+Term 2
+: ```
+  code block
+  ```
+.
+
+List is tight, only if all dts are tight:
+.
+Term 1
+: foo
+: bar
+
+Term 2
+: foo
+
+: bar
+.
+Term 1
+
+: foo
+
+: bar
+
+Term 2
+
+: foo
+
+: bar
+.
+
+
+Regression test (first paragraphs shouldn't be tight):
+.
+Term 1
+: foo
+
+  bar
+
+Term 2
+: foo
+.
+Term 1
+
+: foo
+
+  bar
+
+Term 2
+
+: foo
+.
+
+Nested definition lists:
+
+.
+test
+  : foo
+      : bar
+          : baz
+      : bar
+  : foo
+.
+test
+: foo
+  : bar
+    : baz
+  : bar
+: foo
+.
+
+Regression test (blockquote inside deflist)
+.
+foo
+: > bar
+: baz
+.
+foo
+: > bar
+: baz
 .
