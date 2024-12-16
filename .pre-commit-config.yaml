@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.3.0
+  rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b  # frozen: v5.0.0
   hooks:
   - id: end-of-file-fixer
   - id: mixed-line-ending
@@ -8,22 +8,22 @@ repos:
   - id: check-yaml
   - id: check-toml
 - repo: https://github.com/pre-commit/pygrep-hooks
-  rev: v1.9.0
+  rev: 3a6eb0fadf60b3cccfd80bad9dbb6fae7e47b316  # frozen: v1.10.0
   hooks:
   - id: python-check-blanket-noqa
-- repo: https://github.com/timothycrosley/isort
-  rev: 5.10.1
+- repo: https://github.com/PyCQA/isort
+  rev: c235f5e450b4b84e58d114ed4c589cbf454175a3  # frozen: 5.13.2
   hooks:
   - id: isort
 - repo: https://github.com/psf/black
-  rev: 22.8.0
+  rev: 1b2427a2b785cc4aac97c19bb4b9a0de063f9547  # frozen: 24.10.0
   hooks:
   - id: black
-- repo: https://gitlab.com/pycqa/flake8
-  rev: 3.9.2
+- repo: https://github.com/PyCQA/flake8
+  rev: e43806be3607110919eff72939fda031776e885a  # frozen: 7.1.1
   hooks:
   - id: flake8
     additional_dependencies:
-    - flake8-bugbear==21.3.2
-    - flake8-builtins==1.5.3
-    - flake8-comprehensions==3.4.0
+    - flake8-bugbear
+    - flake8-builtins
+    - flake8-comprehensions
